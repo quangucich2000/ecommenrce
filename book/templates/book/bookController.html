@@ -1,0 +1,42 @@
+{% extends 'home/base.html' %}
+{% block content %}
+    <!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:250px">
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+
+  <!-- Top header -->
+  <header class="w3-container w3-xlarge">
+    <p class="w3-left">BOOK CONTROLLER</p>
+    <p class="w3-right">
+      <i class="fa fa-shopping-cart w3-margin-right"></i>
+      <i class="fa fa-search"></i>
+    </p>
+  </header>
+
+  <!-- Image header -->
+
+  <!-- Product grid -->
+  <div class="w3-row w3-grayscale">
+    <h2>Authors Table</h2>
+
+    <button><a href="{% url 'book:authorForm' %}">Create new author</a></button>
+    <table class="w3-table-all w3-small">
+      <tr>
+        <th>Name</th>
+        <th>Biography</th>
+      </tr>
+      {{ authorForm }}
+      {% for author in authorList %}
+      <tr>
+        <td>{{ author.name }}</td>
+        <td>{{ author.biography }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <!-- End page content -->
+</div>
+{% endblock %}
